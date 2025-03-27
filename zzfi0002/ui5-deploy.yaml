@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.5"
+metadata:
+  name: zzfi0002
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:  
+        ignoreCertError: true
+        target:
+          url: https://s4wd1.sayweee.net:44300
+          client: "200"
+        credentials:
+          username:env:UI5_USERNAME
+          password:env:UI5_PASSWORD
+        app:
+          name: ZZFI0002
+          package: ZFI01
+          transport: WD1K903834

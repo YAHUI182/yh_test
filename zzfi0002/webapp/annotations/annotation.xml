@@ -1,0 +1,224 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1" />
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZZFI_0002_SRV/$metadata">
+        <edmx:Include Namespace="ZZFI_0002_SRV" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <!-- <Annotations Target="ZZFI_0002_SRV.Inventory_Layout">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Sku" />
+                            <PropertyValue Property="Label" String="sku" />
+							<Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+								<Record>
+									<PropertyValue Property="width" String="8rem"/>
+								</Record>
+							</Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SkuName" />
+                            <PropertyValue Property="Label" String="skuname" />
+							<Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+								<Record>
+									<PropertyValue Property="width" String="8rem"/>
+								</Record>
+							</Annotation>
+
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Budat" />
+                            <PropertyValue Property="Label" String="Posting Date" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Warehouse" />
+                            <PropertyValue Property="Label" String="Warehouse" />
+                            <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+								<Record>
+									<PropertyValue Property="width" String="8rem"/>
+								</Record>
+							</Annotation>
+
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="WhName" />
+                            <PropertyValue Property="Label" String="Warehouse Name" />
+                            <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+								<Record>
+									<PropertyValue Property="width" String="8rem"/>
+								</Record>
+							</Annotation>
+
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SapQuanSto" />
+                            <PropertyValue Property="Label" String="Sap Quan Sto" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SapQuanNoSto" />
+                            <PropertyValue Property="Label" String="Sap Quan No Sto" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ErpSnapshot" />
+                            <PropertyValue Property="Label" String="ErpSnapshot" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ErpDataFlow" />
+                            <PropertyValue Property="Label" String="ErpDataFlow" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ErpInAdvance" />
+                            <PropertyValue Property="Label" String="ErpInAdvance" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ErpReturnPo" />
+                            <PropertyValue Property="Label" String="ErpReturnPo" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="GrNoPutaway" />
+                            <PropertyValue Property="Label" String="GrNoPutaway" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="StoInSameRg" />
+                            <PropertyValue Property="Label" String="StoInSameRg" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ErpTotal" />
+                            <PropertyValue Property="Label" String="ErpTotal" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="VarianceQuan" />
+                            <PropertyValue Property="Label" String="Variance Quantity" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Sku</PropertyPath>
+                        <PropertyPath>Budat</PropertyPath>
+                        <PropertyPath>Warehouse</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations> -->
+            <Annotations Target="ZZFI_0002_SRV.Ratio/Zzcycle">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="CycleSet" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Zzcycle" />
+                                    <PropertyValue Property="ValueListProperty" String="Zzcycle" /> 
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Zzcyclename" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="ZZFI_0002_SRV.RatioResult/Zzcycle">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="CycleSet" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Zzcycle" />
+                                    <PropertyValue Property="ValueListProperty" String="Zzcycle" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Zzcyclename" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="ZZFI_0002_SRV.DlRatio/Zzcycle">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="CycleSet" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Zzcycle" />
+                                    <PropertyValue Property="ValueListProperty" String="Zzcycle" /> 
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Zzcyclename" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>   
+            <Annotations Target="ZZFI_0002_SRV.DlRatioResult/Zzcycle">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="CycleSet" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Zzcycle" />
+                                    <PropertyValue Property="ValueListProperty" String="Zzcycle" /> 
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Zzcyclename" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations> 
+
+            <Annotations Target="ZZFI_0002_SRV.AllocationQuery/Zzcycle">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="CycleSet" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Zzcycle" />
+                                    <PropertyValue Property="ValueListProperty" String="Zzcycle" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Zzcyclename" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="ZZFI_0002_SRV.AllocationResult/Zzcycle">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="CycleSet" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Zzcycle" />
+                                    <PropertyValue Property="ValueListProperty" String="Zzcycle" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Zzcyclename" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

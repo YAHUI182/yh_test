@@ -1,0 +1,172 @@
+<mvc:View displayBlock="true" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.f" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:sv="sap.ui.comp.smartvariants" xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.ui.table"
+	controllerName="zzfi0002.controller.DlRatio" xmlns:html="http://www.w3.org/1999/xhtml" busy="{localModel>/busy}">
+	
+	<!--一、查询条件【smartFilterBar:SmartFilterBar】-->
+	<smartFilterBar:SmartFilterBar id="smartFilterDlRatio" useToolbar="false" entitySet="DlRatioSet" search="onSearch">
+		<smartFilterBar:controlConfiguration>
+			<smartFilterBar:ControlConfiguration index="0" key="Yearmonth" label="{i18n>MONTH_SEARCH}" visibleInAdvancedArea="true" filterType="single"
+				mandatory="mandatory">
+				<smartFilterBar:customControl>
+					<DatePicker id="YearmonthDatePicker" displayFormat="yyyy-MM" dateValue="{localModel>/Yearmonth}" />
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration index="1" key="Zzcycle" visibleInAdvancedArea="true" filterType="multiple" mandatory="mandatory" />
+		</smartFilterBar:controlConfiguration>
+	</smartFilterBar:SmartFilterBar>
+
+
+
+
+	<!--二、查询结果【smartTable:SmartTable】-->
+	<smartTable:SmartTable id="smartTableDlRatio" entitySet="DlRatioSet" smartFilterId="smartFilterDlRatio" useExportToExcel="true"
+		useVariantManagement="true" useTablePersonalisation="true" tableType="Table" showRowCount="true" placeToolbarInTable="true"
+		requestAtLeastFields="Yearmonth,Zzcycle" enableAutoBinding="false" beforeRebindTable="onBeforeRebindTable">
+		
+		<!--2.1 界面自定义的Save按钮【smartTable:customToolbar】-->
+		<smartTable:customToolbar>
+			<OverflowToolbar design="Transparent">
+				<ToolbarSpacer />
+				<Button text="{i18n>buttonCalcuateDlRatio}" press="onSave" />
+			</OverflowToolbar>
+		</smartTable:customToolbar>
+
+
+		<!--2.2 查询结果表格-->
+		<table:Table id="idReportTable" selectionMode="None" selectionBehavior="Row" visibleRowCount="15">
+			<table:columns>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#DlRatio/Yearmonth/@sap:label}" sortProperty="Yearmonth" filterProperty="Yearmonth">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Yearmonth", "leadingProperty":"Yearmonth"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Yearmonth}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#DlRatio/Zzcycle/@sap:label}" sortProperty="Zzcycle" filterProperty="Zzcycle">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Zzcycle", "leadingProperty":"Zzcycle"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Zzcycle}" wrapping="false" />
+					</table:template>
+				</table:Column>
+
+				<table:Column autoResizable="true" minWidth="120px" label="{/#DlRatio/Zzregion/@sap:label}" sortProperty="Zzregion" filterProperty="Zzregion">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Zzregion", "leadingProperty":"Zzregion"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Zzregion}" wrapping="false" />
+					</table:template>
+				</table:Column>
+
+				<table:Column autoResizable="true" minWidth="120px" label="{/#DlRatio/Segment/@sap:label}" sortProperty="Segment" filterProperty="Segment">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Segment", "leadingProperty":"Segment"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Segment}" wrapping="false" />
+					</table:template>
+				</table:Column>
+
+				<table:Column autoResizable="true" minWidth="120px" label="{/#DlRatio/AmountOriginal/@sap:label}" sortProperty="AmountOriginal" filterProperty="AmountOriginal">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"AmountOriginal", "leadingProperty":"AmountOriginal"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{AmountOriginal}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#DlRatio/AmountRatio/@sap:label}" sortProperty="AmountRatio" filterProperty="AmountRatio">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"AmountRatio", "leadingProperty":"AmountRatio"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{AmountRatio}" wrapping="false" />
+					</table:template>
+				</table:Column>
+
+
+				<table:Column autoResizable="true" minWidth="120px" label="{/#DlRatio/AmountTotal/@sap:label}" sortProperty="AmountTotal" filterProperty="AmountTotal">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"AmountTotal", "leadingProperty":"AmountTotal"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{AmountTotal}" wrapping="false" />
+					</table:template>
+				</table:Column>
+
+				<table:Column autoResizable="true" minWidth="120px" label="{/#DlRatio/RatioSegment/@sap:label}" sortProperty="RatioSegment" filterProperty="RatioSegment">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"RatioSegment", "leadingProperty":"RatioSegment"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{RatioSegment}" wrapping="false" />
+					</table:template>
+				</table:Column>		
+
+				<!-- <table:Column autoResizable="true" minWidth="120px" label="{/#DlRatio/Currency/@sap:label}" sortProperty="Currency" filterProperty="Currency">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Currency", "leadingProperty":"Currency"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Currency}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#DlRatio/Zzreverse/@sap:label}" sortProperty="Zzreverse" filterProperty="Zzreverse">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Zzreverse", "leadingProperty":"Zzreverse"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Zzreverse}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#DlRatio/Operationat/@sap:label}" sortProperty="Operationat" filterProperty="Operationat">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Operationat", "leadingProperty":"Operationat"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Operationat}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#DlRatio/Operationby/@sap:label}" sortProperty="Operationby" filterProperty="Operationby">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Operationby", "leadingProperty":"Operationby"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Operationby}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#DlRatio/Reverseat/@sap:label}" sortProperty="Reverseat" filterProperty="Reverseat">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Reverseat", "leadingProperty":"Reverseat"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Reverseat}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#DlRatio/Reverseby/@sap:label}" sortProperty="Reverseby" filterProperty="Reverseby">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Reverseby", "leadingProperty":"Reverseby"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Reverseby}" wrapping="false" />
+					</table:template>
+				
+				
+				</table:Column> -->
+		
+
+			</table:columns>
+		</table:Table>
+
+		
+	</smartTable:SmartTable>
+
+
+	<OverflowToolbar id="otbFooter">
+		<Button icon="sap-icon://alert" text="{=${message>/}.length}" visible="{=${message>/}.length > 0}" type="Emphasized"
+			press="onMessagePopoverPress" id="messageButton"></Button>
+	</OverflowToolbar>
+</mvc:View>
