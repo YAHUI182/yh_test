@@ -1,0 +1,125 @@
+<mvc:View displayBlock="true" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.f" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:sv="sap.ui.comp.smartvariants" xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.ui.table"
+	controllerName="zzfi0002.controller.AllocationResult" xmlns:html="http://www.w3.org/1999/xhtml" busy="{localModel>/busy}">
+	<smartFilterBar:SmartFilterBar id="smartFilterAllocationResult" useToolbar="false" entitySet="AllocationResultSet" search="onSearch">
+		<smartFilterBar:controlConfiguration>
+			<smartFilterBar:ControlConfiguration index="0" key="Yearmonth" label="{i18n>MONTH_SEARCH}" visibleInAdvancedArea="true" filterType="single"
+				mandatory="mandatory">
+				<smartFilterBar:customControl>
+					<DatePicker id="YearmonthDatePicker" displayFormat="yyyy-MM" dateValue="{localModel>/Yearmonth}" />
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration index="1" key="Zzcycle" visibleInAdvancedArea="true" filterType="single" mandatory="mandatory" />
+		</smartFilterBar:controlConfiguration>
+	</smartFilterBar:SmartFilterBar>
+	<smartTable:SmartTable id="smartTableAllocation" entitySet="AllocationResultSet" smartFilterId="smartFilterAllocationResult" useExportToExcel="true"
+		useVariantManagement="true" useTablePersonalisation="true" tableType="Table" showRowCount="true" placeToolbarInTable="true"
+		requestAtLeastFields="Yearmonth,Zzcycle" enableAutoBinding="false" beforeRebindTable="onBeforeRebindTable">
+		<smartTable:customToolbar>
+			<OverflowToolbar design="Transparent">
+				<ToolbarSpacer />
+				<Button text="{i18n>buttonReverseAllocation}" press="onReverse" />
+			</OverflowToolbar>
+		</smartTable:customToolbar>
+		<table:Table id="idReportTable" selectionMode="None" selectionBehavior="Row" visibleRowCount="13">
+			<table:columns>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#AllocationResult/Yearmonth/@sap:label}" sortProperty="Yearmonth" filterProperty="Yearmonth">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Yearmonth", "leadingProperty":"Yearmonth"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Yearmonth}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#AllocationResult/Zzcycle/@sap:label}" sortProperty="Zzcycle" filterProperty="Zzcycle">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Zzcycle", "leadingProperty":"Zzcycle"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Zzcycle}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#AllocationResult/Zzsequence/@sap:label}" sortProperty="Zzsequence" filterProperty="Zzsequence">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Zzsequence", "leadingProperty":"Zzsequence"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Zzsequence}" wrapping="false" />
+					</table:template>
+				</table:Column>
+
+				<table:Column autoResizable="true" minWidth="120px" label="{/#AllocationResult/AccountingDoument/@sap:label}" sortProperty="AccountingDoument" filterProperty="AccountingDoument">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"AccountingDoument", "leadingProperty":"AccountingDoument"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{AccountingDoument}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#AllocationResult/FiscalYear/@sap:label}" sortProperty="FiscalYear" filterProperty="FiscalYear">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"FiscalYear", "leadingProperty":"FiscalYear"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{FiscalYear}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#AllocationResult/CompanyCode/@sap:label}" sortProperty="CompanyCode" filterProperty="CompanyCode">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"CompanyCode", "leadingProperty":"CompanyCode"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{CompanyCode}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#AllocationResult/ReverseDocument/@sap:label}" sortProperty="ReverseDocument" filterProperty="ReverseDocument">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"ReverseDocument", "leadingProperty":"ReverseDocument"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{ReverseDocument}" wrapping="false" />
+					</table:template>
+				</table:Column>
+
+
+				<table:Column autoResizable="true" minWidth="120px" label="{/#AllocationResult/Operationat/@sap:label}" sortProperty="Operationat" filterProperty="Operationat">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Operationat", "leadingProperty":"Operationat"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Operationat}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#AllocationResult/Operationby/@sap:label}" sortProperty="Operationby" filterProperty="Operationby">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Operationby", "leadingProperty":"Operationby"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Operationby}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#AllocationResult/Reverseat/@sap:label}" sortProperty="Reverseat" filterProperty="Reverseat">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Reverseat", "leadingProperty":"Reverseat"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Reverseat}" wrapping="false" />
+					</table:template>
+				</table:Column>
+				<table:Column autoResizable="true" minWidth="120px" label="{/#AllocationResult/Reverseby/@sap:label}" sortProperty="Reverseby" filterProperty="Reverseby">
+					<table:customData>
+						<core:CustomData key="p13nData" value='\{"columnKey":"Reverseby", "leadingProperty":"Reverseby"}' />
+					</table:customData>
+					<table:template>
+						<Text text="{Reverseby}" wrapping="false" />
+					</table:template>
+				</table:Column>
+
+			</table:columns>
+		</table:Table>
+	</smartTable:SmartTable>
+	<OverflowToolbar id="otbFooter">
+		<Button icon="sap-icon://alert" text="{=${message>/}.length}" visible="{=${message>/}.length > 0}" type="Emphasized"
+			press="onMessagePopoverPress" id="messageButton"></Button>
+	</OverflowToolbar>
+</mvc:View>
